@@ -1,0 +1,20 @@
+{% extends 'summarizer/layouts/main.html' %}
+{% block title  %}    
+<title>Home</title>
+{% endblock title  %}
+
+{% block content  %}
+{% include 'summarizer/include/slider.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 py-5">
+            <p>
+                This application collects medical research articles from various sources,
+                such as scientific journals, databases, or repositories and process those data
+                to present as summaries.
+            </p>
+        </div>
+    </div>
+</div>    
+{% endblock content  %}
+    

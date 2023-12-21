@@ -1,0 +1,75 @@
+  {% extends 'summarizer/layouts/main.html' %}
+    {% load static %}
+
+    {% block title  %}
+    <title> Research Article Summarizer </title> 
+     {% endblock title  %}    
+
+{% comment %} <script>
+  // Get references to the select element and the categories section
+const selectElement = document.getElementById('responseWay');
+const categoriesSection = document.getElementById('categoriesSection');
+
+// Add event listener to the select element
+selectElement.addEventListener('change', function() {
+    const selectedValue = selectElement.value;
+    
+    // Show or hide categories section based on selected option
+    if (selectedValue === 'Summarize') {
+        categoriesSection.style.display = 'block';
+        div_summarized_result.style.display = 'block'
+    } else {
+        categoriesSection.style.display = 'none';
+        div_summarized_result.style.display = 'none';
+    }
+});
+</script> {% endcomment %}
+
+  {% block content %}
+   <div class="container" style="padding-top: 5%;">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center"> AI Generative Summarizer </h1>
+      </div>
+      {% include "summarizer/include/message.html" %}
+    </div>
+    <section class="py-5 text-center">
+    <div class="row">
+      <div class="col-md-8">
+      <form action="{% url 'summarizer' %}" class="search" method="POST">
+          {% csrf_token %}
+          <div id="div_select_query_engine" class="input-group w-100" style="padding-bottom:10px;">
+          <select id="responseWay" name="response_way">
+            <option value="">Please select the option of query engine</option>
+            <option value="Summarize">Summarize</option>
+            <option value="Questionnaire">Questionnaire</option>
+        </select>
+      </div>
+        {% comment %} <div id="categoriesSection" style="display: none;">
+          <label>Categories:</label>
+          <input type="checkbox" name="category" value="COVID-19"> COVID-19
+          <input type="checkbox" name="category" value="SARS-CoV-2"> SARS-CoV-2
+          <input type="checkbox" name="category" value="Cardio Vascular"> Cardio Vascular
+      </div> {% endcomment %}
+          <div id="div_summarized_result" class="input-group w-100">
+              <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="search_text">
+              <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                      Search to Get Summarized\Quest Results
+                  </button>
+              </div>
+          </div>
+      </form> <!-- search-wrap .end// -->
+  </div> <!-- col.// -->
+</div> <!-- col.// -->
+</section>
+<section>
+  <textarea rows="15" cols="100" readonly>
+    {% if summarized_results %}
+      {{ summarized_results }}
+    {% elif error %}
+      {{ error }}
+    {% endif %}
+</textarea>
+</section>
+  {% endblock %}
