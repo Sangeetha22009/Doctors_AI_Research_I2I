@@ -10,7 +10,7 @@ from datetime import datetime
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 # openai.api_key  = os.environ['OPENAI_API_KEY']
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 openai_api_key = os.environ.get('OPENAI_API_KEY')
 
 from llama_index import(
