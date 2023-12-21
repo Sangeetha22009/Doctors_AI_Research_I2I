@@ -19,8 +19,8 @@ covid = ['COVID-19','SARS-CoV-2']
 selectedCategories = [covid]
 output_filepath='covid19_ai_imaging.jsonl'
 summarizedPrompt = "Please generate a concise summary, focusing on the main arguments, conclusions, and significant details within the document. The summary should be clear and informative, providing a condensed overview of the paper's content"
-# os.environ["OPENAI_API_KEY"] = "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"
-os.environ["OPENAI_API_KEY"] = "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"
+# os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = ""
 
 def fetch_papers_for_categories(summarizer_categories):
     try: 
