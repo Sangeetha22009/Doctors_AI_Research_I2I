@@ -21,7 +21,7 @@ ai = ['Artificial intelligence', 'Deep learning', 'Machine learning']
 mi = ['Medical imaging']
 selectedCategoreies = [covid,ai,mi]
 output_filepath='covid19_ai_imaging.jsonl'
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 def fetch_papers_for_categories(selectedCategoreies):
     try:
